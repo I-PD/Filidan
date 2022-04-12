@@ -111,6 +111,10 @@ class MplWidget(QtWidgets.QWidget):
         # self.canvas.ax[1, 2].set_xticks(x7)
         # self.canvas.ax[1, 3].set_xticks(x8)
 
+        # for i, txt in enumerate(data[0]):
+        #    self.canvas.ax[0, 0].annotate(data[0][i], (x1[i], data[0][i]), horizontalalignment='center',
+        #                                  annotation_clip=True)
+
         # ORI
         if len(data[0]) > 0:
             self.canvas.ax[0, 0].hlines(y=int(_ori_data[0][0]), xmin=1, xmax=len(data[0]), linewidth=2, color='r')

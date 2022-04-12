@@ -251,9 +251,16 @@ def approved_corks(_lpv, _ori):
                 approved += 1
         total_scans_by_channel += (rejected + approved)
         ttl_rj += rejected
-        rejection_tax = (rejected / (rejected + approved)) * 100
+        channel_scans = rejected + approved
+        if channel_scans == 0:
+            rejection_tax = 0.0
+        else:
+            rejection_tax = (rejected / channel_scans) * 100
         reject_taxes.append(rejection_tax)
-    gl_rj = (ttl_rj / total_scans_by_channel) * 100
+    if total_scans_by_channel == 0:
+        gl_rj = 0.0
+    else:
+        gl_rj = (ttl_rj / total_scans_by_channel) * 100
     return reject_taxes, total_scans_by_channel, gl_rj
 
 
